@@ -82,11 +82,11 @@ export const PostPage = () => {
     }
     return (
         <div>
-            {/*<button className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm'>*/}
-            {/*    <Link className='flex' to={'/'}>*/}
-            {/*        Назад*/}
-            {/*    </Link>*/}
-            {/*</button>*/}
+            <button className='text-white'>
+                <Link to={'/'}>
+                    Назад
+                </Link>
+            </button>
 
             <div >
                 <div>

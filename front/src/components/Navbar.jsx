@@ -25,7 +25,7 @@ export const Navbar = () => {
         dispatch(getAllPosts())
     }, [dispatch])
 
-    const { posts, PopularPosts } = useSelector((state) => state.post)
+    const { posts, RecentPosts } = useSelector((state) => state.post)
 
 
 
@@ -36,43 +36,7 @@ export const Navbar = () => {
                     <div className="burger-btn" onClick={()=>setMenuActive(!menuActive)}>
                         <span/>
                     </div>
-
                     <Menu active={menuActive} setActive={setMenuActive} header={"Mails"} posts={posts}/>
-                   {/*<NavLink*/}
-                   {/*         to={'/'}*/}
-                   {/*         href='/'*/}
-                   {/*         className='text-xs text-gray-400 hover:text-white'*/}
-                   {/*         style={({ isActive }) =>*/}
-                   {/*             isActive ? activeStyles : undefined*/}
-                   {/*         }*/}
-                   {/*     >*/}
-                   {/*         Главная*/}
-                   {/*     </NavLink>*/}
-
-                    {/*<li>*/}
-                    {/*    <NavLink*/}
-                    {/*        to={'/posts'}*/}
-                    {/*        href='/'*/}
-                    {/*        className='text-xs text-gray-400 hover:text-white'*/}
-                    {/*        style={({ isActive }) =>*/}
-                    {/*            isActive ? activeStyles : undefined*/}
-                    {/*        }*/}
-                    {/*    >*/}
-                    {/*        Мои посты*/}
-                    {/*    </NavLink>*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                    {/*    <NavLink*/}
-                    {/*        to={'/new'}*/}
-                    {/*        href='/'*/}
-                    {/*        className='text-xs text-gray-400 hover:text-white'*/}
-                    {/*        style={({ isActive }) =>*/}
-                    {/*            isActive ? activeStyles : undefined*/}
-                    {/*        }*/}
-                    {/*    >*/}
-                    {/*        Добавить пост*/}
-                    {/*    </NavLink>*/}
-                    {/*</li>*/}
                 </div>
             )}
 

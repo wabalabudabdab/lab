@@ -13,21 +13,10 @@ export const PostItem = ({ post }) => {
         )
     }
     return (
-        <Link to={`/${post._id}`}>
+        <Link to={`/${post._id}/edit`}>
+
             <div className='flex flex-col basis-1/4 flex-grow'>
-                {/*<div*/}
-                {/*    className={*/}
-                {/*        post.imgUrl ? 'flex rouded-sm h-80' : 'flex rounded-sm'*/}
-                {/*    }*/}
-                {/*>*/}
-                {/*    {post.imgUrl && (*/}
-                {/*        <img*/}
-                {/*            src={`http://localhost:3002/${post.imgUrl}`}*/}
-                {/*            alt='img'*/}
-                {/*            className='object-cover w-full'*/}
-                {/*        />*/}
-                {/*    )}*/}
-                {/*</div>*/}
+
                 <div className='flex justify-between items-center pt-2'>
                     <div className='text-xs text-white opacity-50'>
                         {post.username}
@@ -36,6 +25,7 @@ export const PostItem = ({ post }) => {
                         <Moment date={post.createdAt} format='D MMM YYYY' />
                     </div>
                     <div className='text-white text-xl'>{post.title}</div>
+
                 <Editor post = {post.text}/>
                 </div>
             </div>

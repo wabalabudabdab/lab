@@ -4,7 +4,7 @@ import { Navbar } from './Navbar'
 export const Layout = ({ children }) => {
     return (
         <React.Fragment>
-            <div className='container mx-auto'>
+            <div className='' style={{backgroundColor:"#15171E"}}>
                 <Navbar />
                 {children}
             </div>

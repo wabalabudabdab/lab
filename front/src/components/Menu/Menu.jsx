@@ -17,7 +17,7 @@ const Menu = ({header, posts, active, setActive}) => {
                                 <div className='flex flex-col gap-10 basis-4/5'>
                                     <br/>
                                     {posts?.map((post, idx) => (
-                                        <Link className='text-white' to={`/${post._id}`}>
+                                        <Link className='text-white' to={`/${post._id}/edit`}>
     <div>
         {post.title}
     </div>

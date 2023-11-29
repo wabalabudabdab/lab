@@ -116,7 +116,11 @@ export const MainPage = () => {
 
             ))}
 
-            <div className="flex-box gap-4 justify-items-start  mx-auto">
+            <div className='pt-20 text-xl'>
+                Публикации/Ссылки на медиа/Инструменты:
+            </div>
+
+            <div className="flex-box gap-4 justify-items-start mx-auto">
             {articles?.map((article, idx)=>(
                 <div className="flex space-x-4 overflow-x-auto">
                 <div key={article.id} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">

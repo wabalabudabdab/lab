@@ -15,19 +15,14 @@ import { toast } from 'react-toastify'
 
 import axios from '../utils/axios'
 import { removePost } from '../redux/features/post/postSlice'
-import {
-    createComment,
-    getPostComments,
-} from '../redux/features/comment/commentSlice'
+
 import { CommentItem } from '../components/CommentItem'
 import Editor from "./../components/Editor/Editor";
 
 export const PostPage = () => {
     const [post, setPost] = useState(null)
-    const [comment, setComment] = useState('')
 
     const { user } = useSelector((state) => state.auth)
-    const { comments } = useSelector((state) => state.comment)
     const navigate = useNavigate()
     const params = useParams()
     const dispatch = useDispatch()
@@ -42,24 +37,6 @@ export const PostPage = () => {
         }
     }
 
-    const handleSubmit = () => {
-        try {
-            const postId = params.id
-            dispatch(createComment({ postId, comment }))
-            setComment('')
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const fetchComments = useCallback(async () => {
-        try {
-            dispatch(getPostComments(params.id))
-        } catch (error) {
-            console.log(error)
-        }
-    }, [params.id, dispatch])
-
     const fetchPost = useCallback(async () => {
         const { data } = await axios.get(`/posts/${params.id}`)
         setPost(data)
@@ -69,111 +46,65 @@ export const PostPage = () => {
         fetchPost()
     }, [fetchPost])
 
-    useEffect(() => {
-        fetchComments()
-    }, [fetchComments])
+
 
     if (!post) {
         return (
-            <div className='text-xl text-center text-white py-10'>
+            <div className='text-xl text-center text-grey py-10'>
                 Загрузка...
             </div>
         )
     }
     return (
         <div>
-            {/*<button className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm'>*/}
-            {/*    <Link className='flex' to={'/'}>*/}
-            {/*        Назад*/}
-            {/*    </Link>*/}
-            {/*</button>*/}
+            <button className='text-grey'>
+                <Link to={'/'}>
+                    Назад
+                </Link>
+            </button>
 
-            <div >
-                <div>
-                    <div className='flex flex-col basis-1/4 flex-grow'>
-                        <div
-                            className={
-                                post?.imgUrl
-                                    ? 'flex rouded-sm h-80'
-                                    : 'flex rounded-sm'
-                            }
-                        >
-                            {post?.imgUrl && (
-                                <img
-                                    src={`http://localhost:3002/${post.imgUrl}`}
-                                    alt='img'
-                                    className='object-cover w-full'
-                                />
-                            )}
+            <div>
+                <div className="mt-4 border-2 border-gray-100 w-2/3">
+                    <dl className="divide-y divide-gray-100">
+                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <dd className="mt-1 text-sm">{post.title}
+                            </dd>
                         </div>
-                    </div>
-
-                    <div className='flex justify-between items-center pt-2'>
-                        <div className='text-xs text-white opacity-50'>
-                            {post.username}
+                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-2 sm:px-0">
+                            <dt className="text-sm font-medium leading-6 text-gray-900">Экспертиза</dt>
+                            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{post.text}
+                            </dd>
                         </div>
-                        <div className='text-xs text-white opacity-50'>
-                            <Moment date={post.createdAt} format='D MMM YYYY' />
-                        </div>
-                    </div>
-                    <div className='text-white text-xl'>{post.title}</div>
-                    <div className='text-white text-xs pt-4'>
-                        <Editor post={post.text}/>
-                    </div>
-
-                    <div>
-                        <div >
-                            <button className='flex items-center justify-center gap-2 text-xs text-white opacity-50'>
-                                <AiFillEye /> <span>{post.views}</span>
-                            </button>
-                            <button className='flex items-center justify-center gap-2 text-xs text-white opacity-50'>
-                                <AiOutlineMessage />{' '}
-                                <span>{post.comments?.length || 0} </span>
-                            </button>
-                        </div>
-
-                        {user?._id === post.author && (
-                            <div className='flex gap-3 mt-4'>
-                                <button className='flex items-center justify-center gap-2 text-white opacity-50'>
-                                    <Link to={`/${params.id}/edit`}>
-                                        <AiTwotoneEdit />
-                                    </Link>
-                                </button>
-                                <button
-                                    onClick={removePostHandler}
-                                    className='flex items-center justify-center gap-2  text-white opacity-50'
-                                >
-                                    <AiFillDelete />
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                    </dl>
                 </div>
-                <div>
-                    <form
-                        className='flex gap-2'
-                        onSubmit={(e) => e.preventDefault()}
-                    >
-                        <input
-                            type='text'
-                            value={comment}
-                            onChange={(e) => setComment(e.target.value)}
-                            placeholder='Comment'
-                            className='text-black w-full rounded-sm bg-gray-400 border p-2 text-xs outline-none placeholder:text-gray-700'
-                        />
-                        <button
-                            type='submit'
-                            onClick={handleSubmit}
-                            className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
-                        >
-                            Отправить
+                <div className='flex gap-4'>
+                    <button className='border-2 border-amber-900 rounded-3xl bg-amber-900 py-4 px-6'>
+                        <Link className='text-white p-4' to={`/${post._id}`}>Написать вопрос в слак</Link>
+                    </button>
+
+                    <button className='border-2 border-amber-900 rounded-3xl bg-amber-900 py-4 px-6'>
+                        <Link className='text-white p-4' to={`/${post._id}`}>Оставить вопрос в боте</Link>
+                    </button>
+                </div>
+
+
+
+                {user?._id === post.author && (
+                    <div className='flex gap-3 mt-4'>
+                        <button className='flex items-center justify-center gap-2 text-grey opacity-50'>
+                            <Link to={`/${params.id}/edit`}>
+                                <AiTwotoneEdit />
+                            </Link>
                         </button>
-                    </form>
+                        <button
+                            onClick={removePostHandler}
+                            className='flex items-center justify-center gap-2  text-grey opacity-50'
+                        >
+                            <AiFillDelete />
+                        </button>
+                    </div>
+                )}
 
-                    {comments?.map((cmt) => (
-                        <CommentItem key={cmt._id} cmt={cmt} />
-                    ))}
-                </div>
             </div>
         </div>
     )

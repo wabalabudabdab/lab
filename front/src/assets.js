@@ -5,6 +5,8 @@ import Header from './assets/Header.png'
 import Master from './assets/Master.png'
 import phd from './assets/phd.png'
 import podcast from './assets/podcast.png'
+import bg from './assets/bg.png'
+import logo from './assets/logo.png'
 
 
-export { ai, Aliens, Bunner, Header, Master, phd, podcast}
+export { ai, Aliens, Bunner, Header, Master, phd, bg, logo, podcast}

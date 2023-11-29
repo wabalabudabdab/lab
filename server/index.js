@@ -29,6 +29,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/comments', commentRoute)
 
+
 async function start() {
     try {
         await mongoose.connect(
@@ -36,6 +37,7 @@ async function start() {
         )
 
         app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
+
     } catch (error) {
         console.log(error)
     }

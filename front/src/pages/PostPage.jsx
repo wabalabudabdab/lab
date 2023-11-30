@@ -58,7 +58,7 @@ export const PostPage = () => {
                     </Link>
                 </button>
             <div className='w-full text-xl text-center text-grey py-10 flex-col justify-center columns-1'>
-                <p>Нам нужен сервер, чтобы открыть эту страницу. Ожидаем подключение ... </p>
+                <p>Slaaaack connected ... </p>
                 <div className='w-full text-xl text-center align-middle text-grey py-10 flex-col justify-center items-center'>
                     <img className='w-1/4 justify-center columns-1 items-center' style={{maxWidth:'100px', textAlign:'center', display: 'block', margin: '0 auto'}} src={Aliens} />
                 </div>

@@ -10,6 +10,7 @@ import './layout.css'
 import {Aliens, cat, podcast, phd, bg, ai, Master, logo} from './../assets'
 import {mockposts} from '../redux/posts.js'
 import {Link} from "react-router-dom";
+import {AiFillDelete, AiTwotoneEdit} from "react-icons/ai";
 
 export const MainPage = () => {
     const dispatch = useDispatch()
@@ -103,7 +104,7 @@ export const MainPage = () => {
                                     <div className="flex flex-col">
                                         <p className="text-sm leading-6 text-gray-700">{post.text}</p>
                                         <button className="border-b-green-500 rounded bg-emerald-400 py-2 px-4 mt-4 text-white shadow-md max-w-xs ">
-                                            <Link className="max-w-xs" to={`/${post._id}`}>Перейти в профиль</Link>
+                                                <Link className="max-w-xs" to={`/${post._id}`}>Перейти в профиль</Link>
                                         </button>
                                     </div>
                                 </div>
@@ -113,10 +114,12 @@ export const MainPage = () => {
 
 
                 ))}
-
+                <div className='pt-20 text-xl'>
+                    Публикации/Ссылки на медиа/Инструменты:
+                </div>
                 <div className="flex-box flex-wrap gap-4 justify-items-start mx-auto">
                     {articles?.map((article, idx) => (
-                        <div className="max-w-md w-full sm:w-180 bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
+                        <div className="max-w-xl w-full sm:w-180 bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
                             <div className="md:flex">
                                 <div className="md:flex-shrink-0">
                                     <img className="h-48 w-full object-cover md:w-48" src={article.image} alt="Article Image" />

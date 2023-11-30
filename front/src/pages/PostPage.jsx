@@ -18,6 +18,7 @@ import { removePost } from '../redux/features/post/postSlice'
 
 import { CommentItem } from '../components/CommentItem'
 import Editor from "./../components/Editor/Editor";
+import {Aliens} from "../assets";
 
 export const PostPage = () => {
     const [post, setPost] = useState(null)
@@ -50,9 +51,20 @@ export const PostPage = () => {
 
     if (!post) {
         return (
-            <div className='text-xl text-center text-grey py-10'>
-                Загрузка...
+            <div>
+                <button className='text-grey'>
+                    <Link to={'/'}>
+                        Назад
+                    </Link>
+                </button>
+            <div className='w-full text-xl text-center text-grey py-10 flex-col justify-center columns-1'>
+                <p>Нам нужен сервер, чтобы открыть эту страницу. Ожидаем подключение ... </p>
+                <div className='w-full text-xl text-center align-middle text-grey py-10 flex-col justify-center items-center'>
+                    <img className='w-1/4 justify-center columns-1 items-center' style={{maxWidth:'100px', textAlign:'center', display: 'block', margin: '0 auto'}} src={Aliens} />
+                </div>
             </div>
+            </div>
+
         )
     }
     return (

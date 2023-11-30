@@ -10,11 +10,11 @@ export const Layout = ({ children }) => {
             >
                 {/*<Navbar />*/}
                 <div className='w-full h-20 bg-black '>
-                    <div className='max-w-screen-xl flex justify-between'>
-                        <div className='h-20 mx-auto flex justify-end items-center ' >
+                    <div className=' mx-auto  max-w-screen-xl flex justify-between'>
+                        <div className='h-20 flex justify-end items-center ' >
                             <img className='h-10' src = {logo}/>
                         </div>
-                        <div className='h-20 mx-auto flex justify-end items-center '>
+                        <div className='h-20 flex justify-end items-center '>
                             <Link
                                 to='/new'
                                 className='text-xl text-white mr-4'

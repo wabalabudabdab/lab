@@ -103,9 +103,14 @@ export const MainPage = () => {
                                     />
                                     <div className="flex flex-col">
                                         <p className="text-sm leading-6 text-gray-700">{post.text}</p>
+                                        <div className="flex flex-row">
                                         <button className="border-b-green-500 rounded bg-emerald-400 py-2 px-4 mt-4 ml-4 text-white shadow-md max-w-xs ">
-                                                <Link className="max-w-xs" to={`/${post._id}`}>Перейти в профиль</Link>
+                                                <Link className="max-w-xs" to={`/${post._id}`}>Оставить вопрос в боте</Link>
                                         </button>
+                                        <button className="border-b-green-500 rounded bg-amber-600 py-2 px-4 mt-4 ml-4 text-white shadow-md max-w-xs ">
+                                            <Link className="max-w-xs" to={`/${post._id}`}>to Slack</Link>
+                                        </button>
+                                        </div>
                                     </div>
                                 </div>
                             </dl>

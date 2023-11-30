@@ -116,7 +116,7 @@ export const MainPage = () => {
 
                 <div className="flex-box flex-wrap gap-4 justify-items-start mx-auto">
                     {articles?.map((article, idx) => (
-                        <div className="max-w-md w-full sm:w-200 bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
+                        <div className="max-w-md w-full sm:w-180 bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
                             <div className="md:flex">
                                 <div className="md:flex-shrink-0">
                                     <img className="h-48 w-full object-cover md:w-48" src={article.image} alt="Article Image" />

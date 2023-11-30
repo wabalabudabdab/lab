@@ -68,8 +68,8 @@ export const MainPage = () => {
         return (
             <div className='pt-3.5 flex-col align-top justify-center columns-1 max-w-screen-xl' style={{margin:'0 auto'}}>
                 <div className='flex relative'>
-                    <img className='w-full' src = {bg}/>
-                    <img className='w-96 absolute left-20 top-1/4' style={{maxWidth:'400px'}} src = {logo}/>
+                    {/*<img className='w-full' src = {bg}/>*/}
+                    {/*<img className='w-10/12 absolute left-20 top-1/4' src = {logo}/>*/}
                     {/*<img className='w-96 absolute right-20 top-2/4' style={{maxWidth:'100px'}} src = {Aliens}/>*/}
                 </div>
                 <div className='relative bg-white p-4'>
@@ -85,25 +85,25 @@ export const MainPage = () => {
                 </div>
 
                 {mockPosts?.map((post, idx) => (
-                    <div key={idx} className="mt-6 border-2 border-b-gray-300 pb-4 rounded-lg shadow-lg relative" style={{ backgroundColor: '#f3f4f6' }}>
-                        <div className="absolute top-0 left-0 right-0 h-12 bg-gray-200 rounded-t-lg"></div>
+                    <div key={idx} className="mt-6 border-2 border-b-gray-300 pb-4 rounded-lg shadow-lg relative bg-gray-100">
+                        <div className="h-12 bg-gray-200 rounded-t-lg"></div>
 
                         <div className="pt-2 mt-6 max-w-screen-xl">
-                            <dl className="divide-y divide-gray-100">
+                            <dl className="divide-y divide-gray-200">
                                 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                     <dd className="py-4 px-6 mt-1 text-xl">{post.title}</dd>
                                 </div>
 
-                                <div className="py-4 px-6 flex items-start">
+                                <div className="py-4 px-6 flex flex-col sm:flex-row items-start">
                                     <img
-                                        className="rounded-full w-48 h-48 min-w-200 object-cover mr-6"
+                                        className="rounded-full w-48 h-48 min-w-200 object-cover mr-6 mb-4 sm:mb-0"
                                         src={cat}
                                         alt="Master"
                                     />
                                     <div className="flex flex-col">
                                         <p className="text-sm leading-6 text-gray-700">{post.text}</p>
-                                        <button className="border-b-green-500 rounded bg-emerald-400 py-2 px-4 mt-4 text-white shadow-md max-w-250 w-1/4 ml-4">
-                                            <Link className="max-w-250" to={`/${post._id}`}>Перейти в профиль</Link>
+                                        <button className="border-b-green-500 rounded bg-emerald-400 py-2 px-4 mt-4 text-white shadow-md max-w-xs ">
+                                            <Link className="max-w-xs" to={`/${post._id}`}>Перейти в профиль</Link>
                                         </button>
                                     </div>
                                 </div>
@@ -112,24 +112,23 @@ export const MainPage = () => {
                     </div>
 
 
-
                 ))}
 
-                <div className="flex-box gap-4 justify-items-start mx-auto">
+                <div className="flex-box flex-wrap gap-4 justify-items-start mx-auto">
                     {articles?.map((article, idx) => (
-                        <div className="max-w-md bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
+                        <div className="max-w-md w-full sm:w-200 bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
                             <div className="md:flex">
                                 <div className="md:flex-shrink-0">
                                     <img className="h-48 w-full object-cover md:w-48" src={article.image} alt="Article Image" />
                                 </div>
-                                <div className="p-4">
+                                <div className="p-8">
                                     <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
                                         {article.category}
                                     </div>
-                                    <a href="#" className="block mt-1 text-lg leading-tight font-medium text-gray-900 hover:underline">
+                                    <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
                                         {article.title}
                                     </a>
-                                    <div className="text-gray-700 mt-2">
+                                    <div className="text-black mt-2">
                                         {article.author}
                                     </div>
                                 </div>
@@ -137,6 +136,7 @@ export const MainPage = () => {
                         </div>
                     ))}
                 </div>
+
 
 
             </div>
@@ -194,32 +194,29 @@ export const MainPage = () => {
                 Публикации/Ссылки на медиа/Инструменты:
             </div>
 
-            <div className="flex-box gap-4 justify-items-start mx-auto">
-            {articles?.map((article, idx)=>(
-                <div className="flex space-x-4 overflow-x-auto">
-                <div key={article.id} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-                            <div className="md:flex">
-                                <div className="md:flex-shrink-0">
-                                    <img className="h-48 w-full object-cover md:w-48" src={article.image} alt="Article Image" />
+            <div className="flex-box flex-wrap gap-4 justify-items-start mx-auto">
+                {articles?.map((article, idx) => (
+                    <div className="max-w-md w-full sm:w-200 bg-white rounded-xl shadow-md overflow-hidden" key={article.id}>
+                        <div className="md:flex">
+                            <div className="md:flex-shrink-0">
+                                <img className="h-48 w-full object-cover md:w-48" src={article.image} alt="Article Image" />
+                            </div>
+                            <div className="p-8">
+                                <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                                    {article.category}
                                 </div>
-                                <div className="p-8">
-                                    <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-                                        {article.category}
-                                    </div>
-                                    <a href="#" className="block mt-1 text-lg leading-tight font-medium text-white hover:underline">
-                                        {article.title}
-                                    </a>
-                                    {/*<p className="mt-2 text-gray-500">{article.description}</p>*/}
-                                    <div className="items-left text-lime-700 mt-2">
-                                        {article.author}
-                                    </div>
+                                <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
+                                    {article.title}
+                                </a>
+                                <div className="text-black mt-2">
+                                    {article.author}
                                 </div>
                             </div>
                         </div>
-                </div>
-
+                    </div>
                 ))}
             </div>
+
 
         </div>
     )

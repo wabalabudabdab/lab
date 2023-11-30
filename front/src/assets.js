@@ -7,6 +7,7 @@ import phd from './assets/phd.png'
 import podcast from './assets/podcast.png'
 import bg from './assets/bg.png'
 import logo from './assets/logo.png'
+import cat from './assets/cat.jpg'
 
 
-export { ai, Aliens, Bunner, Header, Master, phd, bg, logo, podcast}
+export { ai, Aliens, Bunner, Header, Master, phd, bg, logo, podcast, cat}

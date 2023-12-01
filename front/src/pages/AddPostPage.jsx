@@ -39,19 +39,19 @@ export const AddPostPage = () => {
                 className='w-3/3 mx-auto py-10 bg-1c303f'
                 onSubmit={(e) => e.preventDefault()}
             >
-                <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
-                    Прикрепить изорбажение:
-                    <input
-                        type='file'
-                        className='hidden'
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
-                </label>
-                <div className='flex object-cover py-2'>
-                    {image && (
-                        <img src={URL.createObjectURL(image)} alt={image.name} />
-                    )}
-                </div>
+                {/*<label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>*/}
+                {/*    Прикрепить изорбажение:*/}
+                {/*    <input*/}
+                {/*        type='file'*/}
+                {/*        className='hidden'*/}
+                {/*        onChange={(e) => setImage(e.target.files[0])}*/}
+                {/*    />*/}
+                {/*</label>*/}
+                {/*<div className='flex object-cover py-2'>*/}
+                {/*    {image && (*/}
+                {/*        <img src={URL.createObjectURL(image)} alt={image.name} />*/}
+                {/*    )}*/}
+                {/*</div>*/}
 
                 <label className='text-xs text-white opacity-70'>
                     Имя и должность:

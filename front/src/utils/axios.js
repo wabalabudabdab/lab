@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3002/api',
+    baseURL: 'https://buddy-z52t.onrender.com',
 })
 
 instance.interceptors.request.use((config) => {

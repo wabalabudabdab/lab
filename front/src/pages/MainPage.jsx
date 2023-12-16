@@ -21,6 +21,7 @@ export const MainPage = () => {
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
+
     const tags = ['Frontend', 'Backend', 'DevOps', 'Management', 'Scrum', 'Софты', 'Анализ данных', 'Мемология', 'Хобби и увлечения']
 
 

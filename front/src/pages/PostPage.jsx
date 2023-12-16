@@ -95,7 +95,7 @@ export const PostPage = () => {
                     </button>
 
                     <button className='border-2 border-amber-900 rounded-3xl bg-amber-900 py-4 px-6'>
-                        <Link className='text-white p-4' to={`/${post._id}`}>Оставить вопрос в боте</Link>
+                        <Link className='text-white p-4' to={`/${post._id}`}>Оставить запрос</Link>
                     </button>
                 </div>
 
